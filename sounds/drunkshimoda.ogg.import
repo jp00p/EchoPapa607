@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/drunkshimoda.ogg-08087e0f22d9471099aa9a5fd6b2906f.oggstr"
+
+[deps]
+
+source_file="res://sounds/drunkshimoda.ogg"
+dest_files=[ "res://.import/drunkshimoda.ogg-08087e0f22d9471099aa9a5fd6b2906f.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

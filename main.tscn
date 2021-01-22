@@ -1,0 +1,524 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://player/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Barrier.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://main.gd" type="Script" id=4]
+[ext_resource path="res://StageWall.tscn" type="PackedScene" id=5]
+[ext_resource path="res://sprites/bg.png" type="Texture" id=6]
+[ext_resource path="res://CRT.tscn" type="PackedScene" id=7]
+[ext_resource path="res://sprites/star.png" type="Texture" id=8]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 0, 3, 3 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 8 )
+region = Rect2( 3, 0, 3, 3 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 422.543, 53.5204 )
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="UI" parent="." instance=ExtResource( 3 )]
+
+[node name="CRT" parent="." instance=ExtResource( 7 )]
+
+[node name="BlackBG" type="ColorRect" parent="."]
+margin_left = -143.102
+margin_top = -138.775
+margin_right = 596.898
+margin_bottom = 1065.22
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sky" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0.67451 )
+margin_left = -13.0
+margin_top = 201.0
+margin_right = 506.0
+margin_bottom = 644.0
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 52.3925, -14.4163 )
+frames = SubResource( 3 )
+playing = true
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 139.509, 22.2468 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite3" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 169.782, -69.5791 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite24" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 201.736, -34.2614 )
+frames = SubResource( 3 )
+playing = true
+
+[node name="AnimatedSprite25" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 198.372, -146.942 )
+frames = SubResource( 3 )
+playing = true
+
+[node name="AnimatedSprite26" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 424.069, -179.232 )
+frames = SubResource( 3 )
+playing = true
+
+[node name="AnimatedSprite27" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 391.778, -150.305 )
+frames = SubResource( 3 )
+playing = true
+
+[node name="AnimatedSprite28" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 123.028, -196.386 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite29" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 59.456, -211.859 )
+frames = SubResource( 3 )
+playing = true
+
+[node name="AnimatedSprite30" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 480.913, -188.314 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite31" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 40.2835, -162.75 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite32" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 191.309, -122.724 )
+frames = SubResource( 3 )
+playing = true
+
+[node name="AnimatedSprite33" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 417.341, -101.197 )
+frames = SubResource( 3 )
+playing = true
+
+[node name="AnimatedSprite54" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 271.698, 5.09256 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite55" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 417.005, 58.2372 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite56" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 204.763, 57.5645 )
+frames = SubResource( 3 )
+playing = true
+
+[node name="AnimatedSprite57" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 95.4463, -5.67087 )
+frames = SubResource( 3 )
+playing = true
+
+[node name="AnimatedSprite58" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 95.4463, -5.67087 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite34" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 371.933, -72.6063 )
+frames = SubResource( 3 )
+playing = true
+
+[node name="AnimatedSprite35" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 367.56, -34.5977 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite36" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 184.581, -39.9795 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite37" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 319.461, -92.1151 )
+frames = SubResource( 3 )
+playing = true
+
+[node name="AnimatedSprite38" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 41.9654, -140.214 )
+frames = SubResource( 3 )
+playing = true
+
+[node name="AnimatedSprite39" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 310.716, -93.7969 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite40" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 109.91, -35.9432 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite41" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 430.796, -6.00726 )
+frames = SubResource( 3 )
+playing = true
+
+[node name="AnimatedSprite42" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 71.9013, -3.65276 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite43" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 252.862, -116.669 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite44" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 456.696, -58.1429 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite45" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 117.982, -36.2796 )
+frames = SubResource( 3 )
+playing = true
+
+[node name="AnimatedSprite46" type="AnimatedSprite" parent="Sky"]
+position = Vector2( -11.1792, -168.805 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite47" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 238.062, -146.605 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite48" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 100.492, -99.515 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite49" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 252.526, -8.0255 )
+frames = SubResource( 3 )
+playing = true
+
+[node name="AnimatedSprite50" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 466.114, 76.7369 )
+frames = SubResource( 3 )
+playing = true
+
+[node name="AnimatedSprite51" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 335.27, 47.81 )
+frames = SubResource( 3 )
+playing = true
+
+[node name="AnimatedSprite52" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 26.1566, -46.034 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite53" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 26.1566, -46.034 )
+frames = SubResource( 3 )
+playing = true
+
+[node name="AnimatedSprite4" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 222.926, 18.8833 )
+frames = SubResource( 3 )
+playing = true
+
+[node name="AnimatedSprite5" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 57.7742, -94.4696 )
+frames = SubResource( 3 )
+playing = true
+
+[node name="AnimatedSprite6" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 142.2, -35.9432 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite7" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 349.901, -92.5404 )
+frames = SubResource( 3 )
+playing = true
+
+[node name="AnimatedSprite8" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 445.476, -8.17853 )
+frames = SubResource( 3 )
+playing = true
+
+[node name="AnimatedSprite18" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 487.184, -83.8592 )
+frames = SubResource( 3 )
+playing = true
+
+[node name="AnimatedSprite19" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 479.784, -76.7957 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite20" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 234.579, -55.9415 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite21" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 286.378, -32.3964 )
+frames = SubResource( 3 )
+playing = true
+
+[node name="AnimatedSprite22" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 67.0724, 35.548 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite23" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 67.0724, 35.548 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite9" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 341.892, 79.9209 )
+frames = SubResource( 3 )
+playing = true
+
+[node name="AnimatedSprite10" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 309.856, -63.7079 )
+frames = SubResource( 3 )
+playing = true
+
+[node name="AnimatedSprite11" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 384.607, -4.44096 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite12" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 449.213, -145.4 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite13" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 469.503, 45.749 )
+frames = SubResource( 3 )
+playing = true
+
+[node name="AnimatedSprite14" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 239.91, -126.712 )
+frames = SubResource( 3 )
+playing = true
+
+[node name="AnimatedSprite15" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 69.5849, 84.1924 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite16" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 323.738, 13.179 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite17" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 112.479, -142.017 )
+scale = Vector2( 1.83151, 1.83151 )
+frames = SubResource( 3 )
+playing = true
+
+[node name="AnimatedSprite59" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 377.53, -129.74 )
+scale = Vector2( 1.83151, 1.83151 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite60" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 147.678, 15.2984 )
+scale = Vector2( 1.83151, 1.83151 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite61" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 461.274, -1.45051 )
+scale = Vector2( 1.83151, 1.83151 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite62" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 369.69, -12.854 )
+scale = Vector2( 1.83151, 1.83151 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite63" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 93.8676, -33.5229 )
+scale = Vector2( 1.83151, 1.83151 )
+frames = SubResource( 3 )
+playing = true
+
+[node name="AnimatedSprite64" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 29.3666, 22.0692 )
+scale = Vector2( 1.83151, 1.83151 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="AnimatedSprite65" type="AnimatedSprite" parent="Sky"]
+position = Vector2( 395.704, -189.965 )
+scale = Vector2( 1.83151, 1.83151 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="Ground" type="ColorRect" parent="."]
+margin_left = -142.0
+margin_top = 640.0
+margin_right = 607.0
+margin_bottom = 716.0
+color = Color( 0.0392157, 0.262745, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Explosions" type="Node2D" parent="."]
+
+[node name="Holes" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( -29.0723, 587.915 )
+
+[node name="EnemyStart" type="Node2D" parent="."]
+position = Vector2( 88, 128 )
+
+[node name="Projectiles" type="Node2D" parent="."]
+
+[node name="Barrier" parent="." instance=ExtResource( 2 )]
+cell_size = Vector2( 4, 4 )
+collision_layer = 2
+tile_data = PoolIntArray( 4718620, 0, 0, 4784134, 0, 0, 4784135, 0, 0, 4784155, 0, 0, 4784156, 0, 0, 4784161, 0, 0, 4784162, 0, 0, 4784179, 0, 0, 4784180, 0, 0, 4849670, 0, 0, 4849671, 0, 0, 4849691, 0, 0, 4849692, 0, 0, 4849697, 0, 0, 4849698, 0, 0, 4849715, 0, 0, 4849716, 0, 0, 4915206, 0, 0, 4915207, 0, 0, 4915227, 0, 0, 4915228, 0, 0, 4915233, 0, 0, 4915234, 0, 0, 4915251, 0, 0, 4915252, 0, 0, 4980742, 0, 0, 4980743, 0, 0, 4980763, 0, 0, 4980764, 0, 0, 4980769, 0, 0, 4980770, 0, 0, 4980787, 0, 0, 4980788, 0, 0, 5046278, 0, 0, 5046279, 0, 0, 5046299, 0, 0, 5046300, 0, 0, 5046305, 0, 0, 5046306, 0, 0, 5046323, 0, 0, 5046324, 0, 0, 5111814, 0, 0, 5111815, 0, 0, 5111835, 0, 0, 5111836, 0, 0, 5111841, 0, 0, 5111842, 0, 0, 5111859, 0, 0, 5111860, 0, 0, 5177350, 0, 0, 5177351, 0, 0, 5177371, 0, 0, 5177372, 0, 0, 5177377, 0, 0, 5177378, 0, 0, 5177395, 0, 0, 5177396, 0, 0, 9240585, 2, 0, 9240586, 2, 0, 9240587, 2, 0, 9240588, 2, 0, 9240589, 2, 0, 9240590, 2, 0, 9240591, 2, 0, 9240592, 2, 0, 9240627, 2, 0, 9240628, 2, 0, 9240629, 2, 0, 9240630, 2, 0, 9240631, 2, 0, 9240632, 2, 0, 9240633, 2, 0, 9240634, 2, 0, 9240671, 2, 0, 9240672, 2, 0, 9240673, 2, 0, 9240674, 2, 0, 9240675, 2, 0, 9240676, 2, 0, 9240677, 2, 0, 9240678, 2, 0, 9306119, 2, 0, 9306120, 2, 0, 9306121, 2, 0, 9306126, 2, 0, 9306127, 2, 0, 9306128, 2, 0, 9306129, 2, 0, 9306130, 2, 0, 9306161, 2, 0, 9306162, 2, 0, 9306163, 2, 0, 9306168, 2, 0, 9306170, 2, 0, 9306171, 2, 0, 9306172, 2, 0, 9306205, 2, 0, 9306206, 2, 0, 9306207, 2, 0, 9306212, 2, 0, 9306214, 2, 0, 9306215, 2, 0, 9306216, 2, 0, 9371654, 2, 0, 9371655, 2, 0, 9371656, 2, 0, 9371658, 2, 0, 9371659, 2, 0, 9371660, 2, 0, 9371661, 2, 0, 9371663, 2, 0, 9371664, 2, 0, 9371665, 2, 0, 9371666, 2, 0, 9371667, 2, 0, 9371668, 2, 0, 9371696, 2, 0, 9371697, 2, 0, 9371698, 2, 0, 9371700, 2, 0, 9371701, 2, 0, 9371702, 2, 0, 9371703, 2, 0, 9371705, 2, 0, 9371707, 2, 0, 9371708, 2, 0, 9371709, 2, 0, 9371710, 2, 0, 9371740, 2, 0, 9371741, 2, 0, 9371742, 2, 0, 9371744, 2, 0, 9371745, 2, 0, 9371746, 2, 0, 9371747, 2, 0, 9371749, 2, 0, 9371750, 2, 0, 9371752, 2, 0, 9371753, 2, 0, 9371754, 2, 0, 9437190, 2, 0, 9437191, 2, 0, 9437196, 2, 0, 9437197, 2, 0, 9437198, 2, 0, 9437199, 2, 0, 9437201, 2, 0, 9437204, 2, 0, 9437232, 2, 0, 9437233, 2, 0, 9437238, 2, 0, 9437239, 2, 0, 9437240, 2, 0, 9437241, 2, 0, 9437242, 2, 0, 9437243, 2, 0, 9437246, 2, 0, 9437276, 2, 0, 9437277, 2, 0, 9437282, 2, 0, 9437283, 2, 0, 9437284, 2, 0, 9437285, 2, 0, 9437286, 2, 0, 9437287, 2, 0, 9437290, 2, 0, 9502725, 2, 0, 9502726, 2, 0, 9502730, 2, 0, 9502731, 2, 0, 9502732, 2, 0, 9502734, 2, 0, 9502736, 2, 0, 9502737, 2, 0, 9502738, 2, 0, 9502740, 2, 0, 9502743, 2, 0, 9502744, 2, 0, 9502745, 2, 0, 9502746, 2, 0, 9502747, 2, 0, 9502748, 2, 0, 9502767, 2, 0, 9502768, 2, 0, 9502772, 2, 0, 9502773, 2, 0, 9502774, 2, 0, 9502776, 2, 0, 9502779, 2, 0, 9502780, 2, 0, 9502782, 2, 0, 9502785, 2, 0, 9502786, 2, 0, 9502787, 2, 0, 9502788, 2, 0, 9502789, 2, 0, 9502790, 2, 0, 9502811, 2, 0, 9502812, 2, 0, 9502816, 2, 0, 9502817, 2, 0, 9502818, 2, 0, 9502820, 2, 0, 9502821, 2, 0, 9502823, 2, 0, 9502824, 2, 0, 9502826, 2, 0, 9502829, 2, 0, 9502830, 2, 0, 9502831, 2, 0, 9502832, 2, 0, 9502833, 2, 0, 9502834, 2, 0, 9568265, 2, 0, 9568266, 2, 0, 9568270, 2, 0, 9568271, 2, 0, 9568272, 2, 0, 9568274, 2, 0, 9568275, 2, 0, 9568276, 2, 0, 9568277, 2, 0, 9568278, 2, 0, 9568279, 2, 0, 9568285, 2, 0, 9568286, 2, 0, 9568287, 2, 0, 9568307, 2, 0, 9568308, 2, 0, 9568312, 2, 0, 9568313, 2, 0, 9568314, 2, 0, 9568316, 2, 0, 9568317, 2, 0, 9568318, 2, 0, 9568319, 2, 0, 9568320, 2, 0, 9568321, 2, 0, 9568327, 2, 0, 9568328, 2, 0, 9568329, 2, 0, 9568351, 2, 0, 9568352, 2, 0, 9568356, 2, 0, 9568357, 2, 0, 9568358, 2, 0, 9568360, 2, 0, 9568361, 2, 0, 9568362, 2, 0, 9568363, 2, 0, 9568364, 2, 0, 9568365, 2, 0, 9568371, 2, 0, 9568372, 2, 0, 9568373, 2, 0, 9633800, 2, 0, 9633801, 2, 0, 9633803, 2, 0, 9633804, 2, 0, 9633805, 2, 0, 9633807, 2, 0, 9633808, 2, 0, 9633809, 2, 0, 9633811, 2, 0, 9633812, 2, 0, 9633814, 2, 0, 9633816, 2, 0, 9633817, 2, 0, 9633818, 2, 0, 9633819, 2, 0, 9633820, 2, 0, 9633821, 2, 0, 9633822, 2, 0, 9633842, 2, 0, 9633843, 2, 0, 9633845, 2, 0, 9633846, 2, 0, 9633847, 2, 0, 9633849, 2, 0, 9633850, 2, 0, 9633851, 2, 0, 9633855, 2, 0, 9633856, 2, 0, 9633858, 2, 0, 9633859, 2, 0, 9633860, 2, 0, 9633861, 2, 0, 9633862, 2, 0, 9633863, 2, 0, 9633864, 2, 0, 9633886, 2, 0, 9633887, 2, 0, 9633889, 2, 0, 9633890, 2, 0, 9633891, 2, 0, 9633893, 2, 0, 9633894, 2, 0, 9633895, 2, 0, 9633896, 2, 0, 9633900, 2, 0, 9633902, 2, 0, 9633903, 2, 0, 9633904, 2, 0, 9633905, 2, 0, 9633906, 2, 0, 9633907, 2, 0, 9633908, 2, 0, 9699336, 2, 0, 9699338, 2, 0, 9699339, 2, 0, 9699340, 2, 0, 9699345, 2, 0, 9699346, 2, 0, 9699348, 2, 0, 9699349, 2, 0, 9699350, 2, 0, 9699351, 2, 0, 9699352, 2, 0, 9699353, 2, 0, 9699378, 2, 0, 9699380, 2, 0, 9699381, 2, 0, 9699382, 2, 0, 9699387, 2, 0, 9699388, 2, 0, 9699389, 2, 0, 9699390, 2, 0, 9699391, 2, 0, 9699393, 2, 0, 9699394, 2, 0, 9699395, 2, 0, 9699422, 2, 0, 9699424, 2, 0, 9699425, 2, 0, 9699426, 2, 0, 9699431, 2, 0, 9699432, 2, 0, 9699433, 2, 0, 9699434, 2, 0, 9699435, 2, 0, 9699436, 2, 0, 9699437, 2, 0, 9699438, 2, 0, 9699439, 2, 0, 9764872, 2, 0, 9764873, 2, 0, 9764882, 2, 0, 9764885, 2, 0, 9764886, 2, 0, 9764887, 2, 0, 9764889, 2, 0, 9764890, 2, 0, 9764891, 2, 0, 9764914, 2, 0, 9764915, 2, 0, 9764924, 2, 0, 9764927, 2, 0, 9764928, 2, 0, 9764929, 2, 0, 9764931, 2, 0, 9764932, 2, 0, 9764933, 2, 0, 9764958, 2, 0, 9764959, 2, 0, 9764968, 2, 0, 9764971, 2, 0, 9764972, 2, 0, 9764973, 2, 0, 9764975, 2, 0, 9764976, 2, 0, 9764977, 2, 0, 9830407, 2, 0, 9830408, 2, 0, 9830418, 2, 0, 9830419, 2, 0, 9830420, 2, 0, 9830421, 2, 0, 9830424, 2, 0, 9830427, 2, 0, 9830428, 2, 0, 9830449, 2, 0, 9830450, 2, 0, 9830460, 2, 0, 9830461, 2, 0, 9830462, 2, 0, 9830463, 2, 0, 9830466, 2, 0, 9830469, 2, 0, 9830470, 2, 0, 9830493, 2, 0, 9830494, 2, 0, 9830504, 2, 0, 9830505, 2, 0, 9830506, 2, 0, 9830507, 2, 0, 9830510, 2, 0, 9830513, 2, 0, 9830514, 2, 0, 9895942, 2, 0, 9895955, 2, 0, 9895956, 2, 0, 9895961, 2, 0, 9895962, 2, 0, 9895964, 2, 0, 9895984, 2, 0, 9895998, 2, 0, 9896003, 2, 0, 9896004, 2, 0, 9896006, 2, 0, 9896028, 2, 0, 9896038, 2, 0, 9896039, 2, 0, 9896041, 2, 0, 9896042, 2, 0, 9896044, 2, 0, 9896045, 2, 0, 9896047, 2, 0, 9896048, 2, 0, 9896050, 2, 0, 9961491, 2, 0, 9961499, 2, 0, 9961500, 2, 0, 9961533, 2, 0, 9961534, 2, 0, 9961541, 2, 0, 9961542, 2, 0, 9961574, 2, 0, 9961575, 2, 0, 9961577, 2, 0, 9961580, 2, 0, 9961581, 2, 0, 9961585, 2, 0, 9961586, 2, 0, 10027027, 2, 0, 10027028, 2, 0, 10027070, 2, 0, 10027113, 2, 0, 10027114, 2, 0, 10092563, 2, 0, 10092605, 2, 0, 10092606, 2, 0, 10092649, 2, 0, 10158099, 2, 0, 10158100, 2, 0, 10158142, 2, 0, 10158185, 2, 0, 10158186, 2, 0, 10223635, 2, 0, 10223677, 2, 0, 10223678, 2, 0, 10223721, 2, 0, 10289171, 2, 0, 10289172, 2, 0, 10289214, 2, 0, 10289257, 2, 0, 10289258, 2, 0, 10354707, 2, 0, 10354749, 2, 0, 10354750, 2, 0, 10354793, 2, 0, 10420243, 2, 0, 10420244, 2, 0, 10420285, 2, 0, 10420286, 2, 0, 10420329, 2, 0, 10420330, 2, 0 )
+
+[node name="Jakes" type="Node2D" parent="."]
+
+[node name="Bonuses" type="Node2D" parent="."]
+
+[node name="StageWall" parent="." instance=ExtResource( 5 )]
+position = Vector2( -3.73061, 184.565 )
+
+[node name="StageWall2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 497.112, 184.565 )
+
+[node name="HoleTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="JakeTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="MobileControls" type="CanvasLayer" parent="."]
+
+[node name="Center" type="CenterContainer" parent="MobileControls"]
+visible = false
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -36.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="MobileControls/Center"]
+margin_left = 216.0
+margin_right = 283.0
+margin_bottom = 36.0
+custom_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MobileControls/Center/MarginContainer"]
+margin_right = 67.0
+margin_bottom = 20.0
+alignment = 1
+
+[node name="Button" type="Button" parent="MobileControls/Center/MarginContainer/HBoxContainer"]
+margin_right = 20.0
+margin_bottom = 20.0
+text = "<"
+
+[node name="Button2" type="Button" parent="MobileControls/Center/MarginContainer/HBoxContainer"]
+margin_left = 24.0
+margin_right = 44.0
+margin_bottom = 20.0
+text = ">"
+
+[node name="Button3" type="Button" parent="MobileControls/Center/MarginContainer/HBoxContainer"]
+margin_left = 48.0
+margin_right = 67.0
+margin_bottom = 20.0
+text = "S"
+
+[node name="BonusTimer" type="Timer" parent="."]
+wait_time = 20.0
+
+[node name="BulletCatcher" type="StaticBody2D" parent="."]
+position = Vector2( 236.89, -85.6229 )
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletCatcher"]
+shape = SubResource( 4 )
+[connection signal="timeout" from="HoleTimer" to="." method="_on_HoleTimer_timeout"]
+[connection signal="timeout" from="JakeTimer" to="." method="_on_JakeTimer_timeout"]
+[connection signal="timeout" from="BonusTimer" to="." method="_on_BonusTimer_timeout"]

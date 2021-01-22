@@ -1,0 +1,139 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://UITheme.tres" type="Theme" id=1]
+[ext_resource path="res://sprites/creepy.png" type="Texture" id=2]
+[ext_resource path="res://CRT.tscn" type="PackedScene" id=3]
+[ext_resource path="res://SubmitHighscore.gd" type="Script" id=4]
+[ext_resource path="res://ButtonStyle.tres" type="StyleBox" id=5]
+[ext_resource path="res://ButtonDisabledStyle.tres" type="StyleBox" id=6]
+[ext_resource path="res://ButtonStylePressed.tres" type="StyleBox" id=7]
+[ext_resource path="res://LineEditStyle.tres" type="StyleBox" id=8]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.266667, 0.25098, 0.25098, 0.262745 )
+border_width_bottom = 3
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[node name="SubmitHighscore" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CRT" parent="." instance=ExtResource( 3 )]
+layer = 0
+
+[node name="BG" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="BGImage" type="TextureRect" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -799.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Margin" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 16
+custom_constants/margin_top = 16
+custom_constants/margin_left = 16
+custom_constants/margin_bottom = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SubmitScores" type="VBoxContainer" parent="Margin"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 484.0
+margin_bottom = 784.0
+custom_constants/separation = 32
+
+[node name="Title" type="Label" parent="Margin/SubmitScores"]
+margin_right = 468.0
+margin_bottom = 36.0
+text = "Submit your high score"
+align = 1
+
+[node name="Form" type="VBoxContainer" parent="Margin/SubmitScores"]
+margin_top = 68.0
+margin_right = 468.0
+margin_bottom = 700.0
+size_flags_vertical = 3
+custom_constants/separation = 32
+alignment = 1
+
+[node name="Name" type="HBoxContainer" parent="Margin/SubmitScores/Form"]
+margin_top = 225.0
+margin_right = 468.0
+margin_bottom = 264.0
+alignment = 1
+
+[node name="Label" type="Label" parent="Margin/SubmitScores/Form/Name"]
+margin_left = 99.0
+margin_top = 1.0
+margin_right = 221.0
+margin_bottom = 37.0
+text = "nickname: "
+valign = 1
+
+[node name="NameInput" type="LineEdit" parent="Margin/SubmitScores/Form/Name"]
+margin_left = 225.0
+margin_right = 369.0
+margin_bottom = 39.0
+custom_styles/read_only = SubResource( 1 )
+custom_styles/focus = ExtResource( 8 )
+custom_styles/normal = ExtResource( 8 )
+max_length = 6
+
+[node name="SubmitButton" type="Button" parent="Margin/SubmitScores/Form"]
+margin_left = 186.0
+margin_top = 296.0
+margin_right = 282.0
+margin_bottom = 338.0
+rect_min_size = Vector2( 96, 42 )
+size_flags_horizontal = 4
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 7 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/disabled = ExtResource( 6 )
+custom_styles/normal = ExtResource( 5 )
+text = "Submit"
+
+[node name="ErrorText" type="Label" parent="Margin/SubmitScores/Form"]
+modulate = Color( 1, 0, 0, 1 )
+margin_top = 370.0
+margin_right = 468.0
+margin_bottom = 406.0
+align = 1
+
+[node name="MenuButton" type="Button" parent="Margin/SubmitScores"]
+margin_left = 156.0
+margin_top = 732.0
+margin_right = 312.0
+margin_bottom = 768.0
+size_flags_horizontal = 4
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 7 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/disabled = ExtResource( 6 )
+custom_styles/normal = ExtResource( 5 )
+text = "back to menu"
+
+[node name="SendScore" type="HTTPRequest" parent="."]
+[connection signal="pressed" from="Margin/SubmitScores/Form/SubmitButton" to="." method="_on_SubmitButton_pressed"]
+[connection signal="pressed" from="Margin/SubmitScores/MenuButton" to="." method="_on_MenuButton_pressed"]
+[connection signal="request_completed" from="SendScore" to="." method="_on_SendScore_request_completed"]

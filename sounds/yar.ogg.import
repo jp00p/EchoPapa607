@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/yar.ogg-f7bf4965d3ee61ecef1fb642e2eee951.oggstr"
+
+[deps]
+
+source_file="res://sounds/yar.ogg"
+dest_files=[ "res://.import/yar.ogg-f7bf4965d3ee61ecef1fb642e2eee951.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

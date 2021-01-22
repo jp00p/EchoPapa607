@@ -1,0 +1,142 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://fonts/Trek_TNG_Monitors.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://UITheme.tres" type="Theme" id=2]
+[ext_resource path="res://UI.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 34
+extra_spacing_char = 1
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource( 3 )
+
+[node name="BottomUI" type="MarginContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -62.0
+theme = ExtResource( 2 )
+custom_constants/margin_right = 8
+custom_constants/margin_left = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="BottomUI"]
+margin_left = 8.0
+margin_right = 492.0
+margin_bottom = 62.0
+custom_styles/panel = SubResource( 3 )
+
+[node name="LivesAndScore" type="HBoxContainer" parent="BottomUI/PanelContainer"]
+margin_right = 484.0
+margin_bottom = 62.0
+
+[node name="Lives" type="HBoxContainer" parent="BottomUI/PanelContainer/LivesAndScore"]
+margin_right = 240.0
+margin_bottom = 62.0
+size_flags_horizontal = 3
+custom_constants/separation = 16
+
+[node name="LivesLabel" type="Label" parent="BottomUI/PanelContainer/LivesAndScore/Lives"]
+margin_top = 13.0
+margin_right = 54.0
+margin_bottom = 49.0
+text = "Lives"
+
+[node name="LivesValue" type="Label" parent="BottomUI/PanelContainer/LivesAndScore/Lives"]
+visible = false
+margin_left = 70.0
+margin_top = 13.0
+margin_right = 81.0
+margin_bottom = 49.0
+text = "3"
+
+[node name="RikerFaces" type="HBoxContainer" parent="BottomUI/PanelContainer/LivesAndScore/Lives"]
+margin_left = 70.0
+margin_top = 31.0
+margin_right = 70.0
+margin_bottom = 31.0
+size_flags_vertical = 4
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="BottomUI/PanelContainer/LivesAndScore/Lives/RikerFaces"]
+
+[node name="Score" type="HBoxContainer" parent="BottomUI/PanelContainer/LivesAndScore"]
+margin_left = 244.0
+margin_right = 484.0
+margin_bottom = 62.0
+size_flags_horizontal = 3
+custom_constants/separation = 16
+alignment = 2
+
+[node name="ScoreLabel" type="Label" parent="BottomUI/PanelContainer/LivesAndScore/Score"]
+margin_left = 94.0
+margin_top = 13.0
+margin_right = 153.0
+margin_bottom = 49.0
+text = "Score"
+
+[node name="ScoreValue" type="Label" parent="BottomUI/PanelContainer/LivesAndScore/Score"]
+margin_left = 169.0
+margin_top = 13.0
+margin_right = 240.0
+margin_bottom = 49.0
+text = "000000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TopUI" type="MarginContainer" parent="."]
+anchor_right = 1.0
+margin_right = 3.05176e-05
+margin_bottom = 36.0
+rect_min_size = Vector2( 0, 32 )
+theme = ExtResource( 2 )
+custom_constants/margin_right = 8
+custom_constants/margin_left = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameName" type="VBoxContainer" parent="TopUI"]
+margin_left = 8.0
+margin_right = 492.0
+margin_bottom = 36.0
+
+[node name="GameNameLabel" type="Label" parent="TopUI/GameName"]
+margin_right = 484.0
+margin_bottom = 36.0
+text = "Echo papa 607"
+align = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AlertMessage" type="Label" parent="CenterContainer"]
+margin_left = 50.0
+margin_top = 379.0
+margin_right = 450.0
+margin_bottom = 420.0
+rect_min_size = Vector2( 400, 0 )
+size_flags_horizontal = 4
+text = "Here's a Message!"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
