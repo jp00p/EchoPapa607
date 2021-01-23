@@ -68,8 +68,15 @@ margin_bottom = 36.0
 text = "Submit your high score"
 align = 1
 
-[node name="Form" type="VBoxContainer" parent="Margin/SubmitScores"]
+[node name="ScoreValue" type="Label" parent="Margin/SubmitScores"]
 margin_top = 68.0
+margin_right = 468.0
+margin_bottom = 104.0
+text = "Submit your high score"
+align = 1
+
+[node name="Form" type="VBoxContainer" parent="Margin/SubmitScores"]
+margin_top = 136.0
 margin_right = 468.0
 margin_bottom = 700.0
 size_flags_vertical = 3
@@ -77,9 +84,9 @@ custom_constants/separation = 32
 alignment = 1
 
 [node name="Name" type="HBoxContainer" parent="Margin/SubmitScores/Form"]
-margin_top = 225.0
+margin_top = 191.0
 margin_right = 468.0
-margin_bottom = 264.0
+margin_bottom = 230.0
 alignment = 1
 
 [node name="Label" type="Label" parent="Margin/SubmitScores/Form/Name"]
@@ -101,9 +108,9 @@ max_length = 6
 
 [node name="SubmitButton" type="Button" parent="Margin/SubmitScores/Form"]
 margin_left = 186.0
-margin_top = 296.0
+margin_top = 262.0
 margin_right = 282.0
-margin_bottom = 338.0
+margin_bottom = 304.0
 rect_min_size = Vector2( 96, 42 )
 size_flags_horizontal = 4
 custom_styles/hover = ExtResource( 5 )
@@ -115,9 +122,9 @@ text = "Submit"
 
 [node name="ErrorText" type="Label" parent="Margin/SubmitScores/Form"]
 modulate = Color( 1, 0, 0, 1 )
-margin_top = 370.0
+margin_top = 336.0
 margin_right = 468.0
-margin_bottom = 406.0
+margin_bottom = 372.0
 align = 1
 
 [node name="MenuButton" type="Button" parent="Margin/SubmitScores"]

@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 signal enemy_death(pos)
 signal enemy_win
+signal enemies_at_the_barrier
 
 var speed = 15
 
@@ -42,9 +43,11 @@ func _ready():
 	$ShootTimer.wait_time = rand_range(2,10)
 	$ShootTimer.start()
 	modulate = colors[my_level][my_wave-1][my_row]
-	speed = speed * (my_level + my_wave)
+	speed = speed * ((my_level + my_wave)/2)
 
 func _process(delta):
+	if global_position.y >= 550:
+		emit_signal("enemies_at_the_barrier")
 	if global_position.y >= 625:
 		emit_signal("enemy_win")
 		return
@@ -85,6 +88,7 @@ func shoot():
 		return
 	var b = load("res://Bullet.tscn").instance()
 	b.enemy_bullet = true
+	$LaserSound.play()
 	b.SPEED = 200 + (my_level*50) + (my_wave * 10) # set bullet speed based on level/wave
 	b.set_collision_mask_bit(2, false)
 	b.shoot_direction = "down"

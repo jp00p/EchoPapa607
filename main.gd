@@ -1,6 +1,6 @@
 extends Node2D
 
-var DEBUG = true
+var DEBUG = false
 
 var screen_size = Vector2()
 var invader_rows = 5
@@ -22,6 +22,8 @@ var time_elapsed = 0.0
 var missed_shots = 0.0
 var hit_shots = 0.0
 
+var current_bgm = "normal"
+
 var win_messages = ["Hell yeah!", "Nice.", "You did it!"]
 
 # preload scenes
@@ -35,15 +37,55 @@ onready var ankylosaur = preload("res://Ankylosaur.tscn")
 onready var boss = preload("res://Boss.tscn")
 onready var explosion = preload("res://Explosion.tscn")
 
+onready var hurt_sound = preload("res://sounds/Hit_Hurt8.wav")
+onready var shoot_sound = preload("res://sounds/Laser_Shoot14.wav")
+
 func _ready():
 	self.lives = 3
 	screen_size = get_viewport_rect().size
 	$Player.connect("player_died", self, "player_died")
 	new_game()
+
+func play_bgm(bgm):
+	$BGM_Boss.stop()
+	$BGM_Normal.stop()
+	$BGM_Victory.stop()
+	$BGM_GameOver.stop()
 	
+	current_bgm = bgm
+	
+	if bgm == "normal":
+		$BGM_Normal.play()
+	if bgm == "boss":
+		$BGM_Boss.play()
+	if bgm == "fanfare":
+		$BGM_Victory.play()
+	if bgm == "game_over":
+		$BGM_GameOver.play()
+	
+func pause_bgm():
+	if current_bgm == "normal":
+		$BGM_Normal.set_stream_paused(true)
+	if current_bgm == "boss":
+		$BGM_Boss.set_stream_paused(true)
+	if current_bgm == "fanfare":
+		$BGM_Victory.set_stream_paused(true)
+	if current_bgm == "game_over":
+		$BGM_GameOver.set_stream_paused(true)
+		
+func resume_bgm():
+	if current_bgm == "normal":
+		$BGM_Normal.set_stream_paused(false)
+	if current_bgm == "boss":
+		$BGM_Boss.set_stream_paused(false)
+	if current_bgm == "fanfare":
+		$BGM_Victory.set_stream_paused(false)
+	if current_bgm == "game_over":
+		$BGM_GameOver.set_stream_paused(false)
 	
 func new_game():
 	# start a new game, reset the things!
+	play_bgm("normal")
 	Globals.game_score = 0
 	self.time_elapsed = 0.0
 	self.level = 1
@@ -55,7 +97,7 @@ func new_game():
 	start_level(1, 1) # level 1, wave 1
 	
 func _process(delta):
-	time_elapsed += delta
+	self.time_elapsed += delta
 	if not DEBUG:
 		return
 		
@@ -92,6 +134,7 @@ func prepare_invaders():
 			i.connect("bring_it_down", self, "move_invaders_down")
 			i.connect("enemy_death", self, "enemy_died")
 			i.connect("enemy_win", self, "enemy_win")
+			i.connect("enemies_at_the_barrier", self, "destroy_barrier")
 			$EnemyStart.add_child(i)
 
 func prepare_boss():
@@ -162,6 +205,8 @@ func start_level(level_num, wave_num):
 	set_moving(true)
 
 func start_boss_level():
+	set_moving(false)
+	play_bgm("boss")
 	$UI.clear_message()
 	time_elapsed = 0.0
 	level = 5
@@ -177,10 +222,12 @@ func start_boss_level():
 
 func player_died():
 	set_moving(false) # stop everything
+	create_explosion($Player.position)
 	for p in $Projectiles.get_children():
 		p.queue_free()
 	self.lives = lives - 1 # reduce lives
-	$UI.show_message("You died!")
+	var dumb_death_messages = ["Riker down!", "Rikey no likey!", "Riker did not consent to that!", "RSVP Riker"]
+	$UI.show_message(dumb_death_messages[randi()%dumb_death_messages.size()])
 	yield(get_tree().create_timer(3), "timeout")
 	if lives > 0:
 		restart_wave()
@@ -195,15 +242,17 @@ func restart_wave():
 func game_over():
 	# the bad ending!
 	set_moving(false)
+	play_bgm("game_over")
 	Globals.game_score = score
 	$UI.clear_message()
-	$UI.show_message("Game over!")
-	yield(get_tree().create_timer(3), "timeout")
+	$UI.show_messages(["Looks like you just got", "...Schism'd", "Game over!"])
+	yield($BGM_GameOver, "finished")
+	yield(get_tree().create_timer(1), "timeout")
 	get_tree().change_scene("res://SubmitHighscore.tscn")
 
 func enemy_win():
 	set_moving(false)
-	$UI.show_message("Commander Riker has been overwhelmed!")
+	$UI.show_message("Your space has been invaded!")
 	yield(get_tree().create_timer(2), "timeout")
 	game_over()
 
@@ -217,6 +266,7 @@ func clear_enemies():
 	
 func enemy_died(pos):
 	hit_shots += 1.0
+	$HurtSound.play()
 	$CRT.start_screen_shake() # FX
 	var this_score = ((10 * wave) + (level*10))
 	self.score += this_score # add to score
@@ -243,10 +293,19 @@ func boss_hit(pos):
 	
 func boss_died(pos):
 	print("BOSS DIED")
-	Engine.time_scale = 0.2
+	play_bgm("fanfare")
+	clear_enemies()
+	Engine.time_scale = 0.3
 	self.score += 5000
 	create_floating_text(5000, pos)
-	yield(get_tree().create_timer(0.5), "timeout")
+	for i in range(50):
+		$CRT.start_screen_shake()
+		var epos = pos
+		epos.x += rand_range(-200, 200)
+		epos.y += rand_range(-200, 200)
+		create_explosion(epos)
+		yield(get_tree().create_timer(0.05), "timeout")
+	yield(get_tree().create_timer(1), "timeout")
 	Engine.time_scale = 1
 	next_level()
 	
@@ -334,6 +393,7 @@ func bonus_died(pos, sound):
 	self.score += this_score
 	create_floating_text(this_score, pos)
 	Audio.play("res://sounds/"+str(sound))
+	
 
 func horgon_died(pos):
 	# when a horgon gets destroyed
@@ -362,12 +422,16 @@ func _on_BonusTimer_timeout():
 		spawn_horgon()
 	if roll in range(75, 94):
 		spawn_ankylosaur()
-	if roll in range(25, 74):
+	if roll in range(15, 74):
 		spawn_bonus()
 	
 func player_powerup_shoot():
 	# player shot the ankylosaur
 	$Player.shoot_speeed_powerup()
+
+func destroy_barrier():
+	if get_node_or_null("Barrier") != null:
+		$Barrier.queue_free()
 
 
 # setters/getters

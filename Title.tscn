@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://ButtonStyle.tres" type="StyleBox" id=1]
 [ext_resource path="res://ButtonStylePressed.tres" type="StyleBox" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://sprites/title.png" type="Texture" id=6]
 [ext_resource path="res://sprites/tgg.png" type="Texture" id=7]
 [ext_resource path="res://fonts/Trek_TNG_Monitors.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Title.gd" type="Script" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -20,6 +21,7 @@ font_data = ExtResource( 8 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 3 )
+script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -153,5 +155,5 @@ stretch_mode = 6
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/Buttons/StartGame" to="CRT" method="_on_StartGame_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/Buttons/ShowScores" to="CRT" method="_on_ShowScores_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/Buttons/StartGame" to="." method="_on_StartGame_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/Buttons/ShowScores" to="." method="_on_ShowScores_pressed"]

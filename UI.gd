@@ -7,17 +7,17 @@ func _ready():
 
 func show_message(msg):
 	# show a message
-	$CenterContainer/AlertMessage.text = str(msg)
+	$CenterContainer/VB/AlertMessage.text = str(msg)
 	
 func show_messages(msgs):
 	# show messages in sequence
 	for m in msgs:
-		$CenterContainer/AlertMessage.text += str(m) + "\n"
+		$CenterContainer/VB/AlertMessage.text += str(m) + "\n"
 		yield(get_tree().create_timer(1), "timeout")
 
 func clear_message():
 	# clear the message box
-	$CenterContainer/AlertMessage.text = ""
+	$CenterContainer/VB/AlertMessage.text = ""
 
 func set_lives_number(val):
 	# set the riker faces (max 3 displayed)

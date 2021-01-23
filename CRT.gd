@@ -21,8 +21,3 @@ func _on_ShakeTimer_timeout():
 	screen.set_shader_param("aberration_amount", 0)	
 
 
-func _on_StartGame_pressed():
-	get_tree().change_scene("res://main.tscn")
-
-func _on_ShowScores_pressed():
-	get_tree().change_scene("res://Highscores.tscn")

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Schismd.ogg-7c0b31966d6e92518c094450c747cfc7.oggstr"
+
+[deps]
+
+source_file="res://sounds/Schismd.ogg"
+dest_files=[ "res://.import/Schismd.ogg-7c0b31966d6e92518c094450c747cfc7.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

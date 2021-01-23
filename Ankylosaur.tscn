@@ -4,7 +4,7 @@
 [ext_resource path="res://Ankylosaur.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 17.0897, 16.5055 )
+extents = Vector2( 31.927, 16.5055 )
 
 [node name="Ankylosaur" type="Area2D"]
 collision_mask = 0

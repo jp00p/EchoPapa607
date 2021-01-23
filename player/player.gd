@@ -63,6 +63,8 @@ func shoot():
 	if !can_shoot:
 		return
 	shots_fired += 1
+	$LaserSound.pitch_scale = rand_range(0.75, 1.25)
+	$LaserSound.play()
 	var b = bullet.instance() # create a bullet
 	owner.get_node("Projectiles").add_child(b) # add bullet to the level
 	b.connect("missed_shot", owner, "missed_shot")
@@ -91,11 +93,13 @@ func start_movement():
 	
 func player_death():
 	emit_signal("player_died")
-	set_visible(false)
+	#set_visible(false)
+	rotation_degrees = 90
 	stop_movement()
 
 func respawn_player():
 	position = start_position
+	rotation_degrees = 0
 	set_visible(true)
 
 func shoot_speeed_powerup():

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Orbital Colossus.ogg-5526939012f79b1b560fd40a5bd14032.oggstr"
+
+[deps]
+
+source_file="res://sounds/Orbital Colossus.ogg"
+dest_files=[ "res://.import/Orbital Colossus.ogg-5526939012f79b1b560fd40a5bd14032.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

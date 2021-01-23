@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/darkmateria_the_picard_song.ogg-58fbba75c4c50231df27ab3e03574879.oggstr"
+
+[deps]
+
+source_file="res://sounds/darkmateria_the_picard_song.ogg"
+dest_files=[ "res://.import/darkmateria_the_picard_song.ogg-58fbba75c4c50231df27ab3e03574879.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,5 +1,8 @@
 extends Control
 
+func _ready():
+	$Margin/SubmitScores/ScoreValue.text = str(Globals.game_score)
+
 func _on_SendScore_request_completed(result, response_code, headers, body):
 	get_tree().change_scene("res://Highscores.tscn")
 

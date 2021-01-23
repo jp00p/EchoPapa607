@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Malloga_Ballinga_Mastered_mp.ogg-23c16a33d99efb4618aac582a2e7be0c.oggstr"
+
+[deps]
+
+source_file="res://sounds/Malloga_Ballinga_Mastered_mp.ogg"
+dest_files=[ "res://.import/Malloga_Ballinga_Mastered_mp.ogg-23c16a33d99efb4618aac582a2e7be0c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

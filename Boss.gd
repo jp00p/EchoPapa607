@@ -55,6 +55,7 @@ func _process(delta):
 func take_damage():
 	hp -= 1
 	hit_flash = true
+	$BossHurt.play()
 	emit_signal("boss_hit", global_position)
 	if hp <= int(max_hp/2):
 		# do that cool TMNT effect
@@ -70,6 +71,7 @@ func shoot():
 		
 	var muzzle = $Eyez.get_child(randi()%$Eyez.get_child_count())
 	var b = load("res://Bullet.tscn").instance()
+	$LaserSound.play()
 	b.enemy_bullet = true
 	b.SPEED = 300
 	b.set_collision_mask_bit(2, false)

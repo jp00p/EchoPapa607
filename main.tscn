@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Barrier.tscn" type="PackedScene" id=2]
@@ -8,6 +8,11 @@
 [ext_resource path="res://sprites/bg.png" type="Texture" id=6]
 [ext_resource path="res://CRT.tscn" type="PackedScene" id=7]
 [ext_resource path="res://sprites/star.png" type="Texture" id=8]
+[ext_resource path="res://sounds/Malloga_Ballinga_Mastered_mp.ogg" type="AudioStream" id=9]
+[ext_resource path="res://sounds/Victory!.wav" type="AudioStream" id=10]
+[ext_resource path="res://sounds/Orbital Colossus.ogg" type="AudioStream" id=11]
+[ext_resource path="res://sounds/Schismd.ogg" type="AudioStream" id=12]
+[ext_resource path="res://sounds/Hit_Hurt8.wav" type="AudioStream" id=13]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 8 )
@@ -460,13 +465,13 @@ tile_data = PoolIntArray( 4718620, 0, 0, 4784134, 0, 0, 4784135, 0, 0, 4784155, 
 position = Vector2( -3.73061, 184.565 )
 
 [node name="StageWall2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 497.112, 184.565 )
+position = Vector2( 498.112, 184.565 )
 
 [node name="HoleTimer" type="Timer" parent="."]
 wait_time = 5.0
 
 [node name="JakeTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 20.0
 autostart = true
 
 [node name="MobileControls" type="CanvasLayer" parent="."]
@@ -510,7 +515,7 @@ margin_bottom = 20.0
 text = "S"
 
 [node name="BonusTimer" type="Timer" parent="."]
-wait_time = 20.0
+wait_time = 15.0
 
 [node name="BulletCatcher" type="StaticBody2D" parent="."]
 position = Vector2( 236.89, -85.6229 )
@@ -519,6 +524,24 @@ collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BulletCatcher"]
 shape = SubResource( 4 )
+
+[node name="BGM_Boss" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+volume_db = -7.913
+
+[node name="BGM_Normal" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -16.393
+
+[node name="BGM_Victory" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+
+[node name="BGM_GameOver" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+
+[node name="HurtSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+volume_db = -13.565
 [connection signal="timeout" from="HoleTimer" to="." method="_on_HoleTimer_timeout"]
 [connection signal="timeout" from="JakeTimer" to="." method="_on_JakeTimer_timeout"]
 [connection signal="timeout" from="BonusTimer" to="." method="_on_BonusTimer_timeout"]
