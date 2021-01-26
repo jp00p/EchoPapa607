@@ -76,11 +76,22 @@ scroll_horizontal_enabled = false
 
 [node name="Center" type="CenterContainer" parent="Margin/Scores/Scroll"]
 margin_right = 468.0
+margin_bottom = 36.0
 size_flags_horizontal = 3
+
+[node name="LoadingText" type="Label" parent="Margin/Scores/Scroll/Center"]
+margin_left = 29.0
+margin_right = 438.0
+margin_bottom = 36.0
+text = "Moriarity is retreiving the scores..."
+align = 1
+valign = 1
 
 [node name="ScoreList" type="GridContainer" parent="Margin/Scores/Scroll/Center"]
 margin_left = 234.0
+margin_top = 18.0
 margin_right = 234.0
+margin_bottom = 18.0
 size_flags_horizontal = 4
 custom_constants/vseparation = 8
 custom_constants/hseparation = 16

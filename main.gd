@@ -319,7 +319,7 @@ func create_floating_text(val, pos):
 func next_level():
 	set_moving(false)
 	$UI.clear_message()
-	var time_bonus = int(100 - time_elapsed) * level * 5
+	var time_bonus = max(int(100 - time_elapsed) * level * 5, 0)
 	var accuracy = get_accuracy()
 	var acc_bonus = int(accuracy)*10
 	var total_bonus = time_bonus + acc_bonus

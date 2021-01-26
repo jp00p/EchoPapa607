@@ -6,8 +6,9 @@ func _ready():
 	$GetScores.request("https://jp00p.com/echo/get_high_score.php")
 
 func _on_GetScores_request_completed(result, response_code, headers, body):
+	$Margin/Scores/Scroll/Center/LoadingText.queue_free()
 	var json = JSON.parse(body.get_string_from_utf8())
-	print(json.result)
+	#print(json.result)
 	var rank = 1
 	for person in json.result:
 		var num_label = Label.new()

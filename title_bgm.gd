@@ -20,6 +20,7 @@ func _ready():
 		available.append(p)
 		p.connect("finished", self, "_on_stream_finished", [p])
 		p.bus = bus
+		p.volume_db = -15
 
 
 func _on_stream_finished(stream):

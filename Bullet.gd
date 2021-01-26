@@ -19,7 +19,7 @@ func _ready():
 	if shoot_direction != "up":
 		velocity = Vector2(0, 1 * SPEED)
 		rotation_degrees = 180
-		modulate = Color(0, 255, 0, 1)
+		#modulate = Color(0, 255, 0, 1)
 		fix_tile_collision = Vector2(0, 0)
 		set_collision_mask_bit(2, false)
 		$Sprite.texture = enemy_graphic

@@ -20,7 +20,8 @@ var direction = Vector2()
 var current_color = Color("#ffffff")
 
 func _ready():
-	direction.x = rand_range(-1, 1)
+	var dirs = [-1, 1]
+	direction.x = dirs[randi()%dirs.size()]
 	direction.y = rand_range(-1, 1)
 	position.y = 127
 	position.x = 158
@@ -74,6 +75,7 @@ func shoot():
 	$LaserSound.play()
 	b.enemy_bullet = true
 	b.SPEED = 300
+	b.modulate = Color(randf(), 1, randf())
 	b.set_collision_mask_bit(2, false)
 	b.shoot_direction = "down"
 	b.transform = muzzle.global_transform # set bullet's position equal to the muzzle

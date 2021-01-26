@@ -90,6 +90,7 @@ func shoot():
 	b.enemy_bullet = true
 	$LaserSound.play()
 	b.SPEED = 200 + (my_level*50) + (my_wave * 10) # set bullet speed based on level/wave
+	b.modulate = Color("#00ff00")
 	b.set_collision_mask_bit(2, false)
 	b.shoot_direction = "down"
 	b.transform = $Muzzle.global_transform # set bullet's position equal to the muzzle
